@@ -101,6 +101,12 @@ def generate(root: Path, tfc_jar: Path, iaf_jar: Path) -> None:
         "spawns_particles": False,
     })
 
+    lang_path = root / "assets/iaftfc/lang/en_us.json"
+    language = json.loads(lang_path.read_text(encoding="utf-8")) if lang_path.exists() else {}
+    # TFC builds JEI category keys as tfc.jei.<knapping type path>_knapping.
+    language["tfc.jei.dragon_scale_knapping"] = "Dragon Scale Knapping Recipe"
+    write_json(root, "assets/iaftfc/lang/en_us.json", dict(sorted(language.items())))
+
     type_dir = root / "data/iaftfc/tfc/knapping_type"
     for color in COLORS:
         stale_type = type_dir / f"dragon_scale_{color}.json"
@@ -125,7 +131,7 @@ def generate(root: Path, tfc_jar: Path, iaf_jar: Path) -> None:
 
     print(
         f"Generated one Dragon Scale knapping type, {len(COLORS) * len(PARTS)} armor recipes, "
-        f"and {len(COLORS)} GUI textures"
+        f"{len(COLORS)} GUI textures, and the JEI category translation"
     )
 
 

@@ -48,5 +48,6 @@
   "item.iaftfc.metal.unfinished_helmet.dragonsteel_fire": "Fire Dragonsteel Unfinished Helmet",
   "item.iaftfc.metal.unfinished_helmet.dragonsteel_ice": "Ice Dragonsteel Unfinished Helmet",
   "item.iaftfc.metal.unfinished_helmet.dragonsteel_lightning": "Lightning Dragonsteel Unfinished Helmet",
-  "itemGroup.iaftfc.dragonsteel": "IaFTFC Dragonsteel"
+  "itemGroup.iaftfc.dragonsteel": "IaFTFC Dragonsteel",
+  "tfc.jei.dragon_scale_knapping": "Dragon Scale Knapping Recipe"
 }
