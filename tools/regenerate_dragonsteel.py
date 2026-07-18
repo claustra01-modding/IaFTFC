@@ -294,9 +294,9 @@ def generate_data(root: Path) -> None:
     for metal in METALS:
         write_tag(root, "fluid", f"molten_{metal}", [f"tfc:metal/{metal}"])
     write_json(root, "data/minecraft/tags/block/mineable/pickaxe.json", {"replace": False, "values": mineable})
-    write_json(root, "data/tfc/tfc/item_size/iaftfc_metal_blocks.json", {"ingredient": block_items, "size": "huge", "weight": "very_heavy"})
-    write_json(root, "data/tfc/tfc/item_size/iaftfc_metal_slabs.json", {"ingredient": slab_items, "size": "small", "weight": "heavy"})
-    write_json(root, "data/tfc/tfc/item_size/iaftfc_metal_stairs.json", {"ingredient": stairs_items, "size": "small", "weight": "heavy"})
+    write_json(root, "data/tfc/tfc/item_size/iaftfc_metal_blocks.json", {"ingredient": block_items, "size": "small", "weight": "light"})
+    write_json(root, "data/tfc/tfc/item_size/iaftfc_metal_slabs.json", {"ingredient": slab_items, "size": "small", "weight": "very_light"})
+    write_json(root, "data/tfc/tfc/item_size/iaftfc_metal_stairs.json", {"ingredient": stairs_items, "size": "small", "weight": "light"})
     write_json(root, "data/tfc/tfc/item_size/iaftfc_dragonsteel_parts.json", {"ingredient": parts_items, "size": "large", "weight": "medium"})
 
 
