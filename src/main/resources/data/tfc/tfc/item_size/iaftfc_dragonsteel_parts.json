@@ -1,0 +1,51 @@
+{
+  "ingredient": [
+    {
+      "item": "iaftfc:metal/sword_blade/dragonsteel_fire"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_helmet/dragonsteel_fire"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_chestplate/dragonsteel_fire"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_greaves/dragonsteel_fire"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_boots/dragonsteel_fire"
+    },
+    {
+      "item": "iaftfc:metal/sword_blade/dragonsteel_ice"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_helmet/dragonsteel_ice"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_chestplate/dragonsteel_ice"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_greaves/dragonsteel_ice"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_boots/dragonsteel_ice"
+    },
+    {
+      "item": "iaftfc:metal/sword_blade/dragonsteel_lightning"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_helmet/dragonsteel_lightning"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_chestplate/dragonsteel_lightning"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_greaves/dragonsteel_lightning"
+    },
+    {
+      "item": "iaftfc:metal/unfinished_boots/dragonsteel_lightning"
+    }
+  ],
+  "size": "large",
+  "weight": "medium"
+}

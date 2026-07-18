@@ -1,0 +1,31 @@
+{
+  "type": "tfc:advanced_shaped_crafting",
+  "input_column": 2,
+  "pattern": [
+    " SH",
+    "SWS",
+    " S "
+  ],
+  "key": {
+    "H": {
+      "tag": "c:tools/hammer"
+    },
+    "S": {
+      "tag": "c:sheets/dragonsteel_fire"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "remainder": {
+    "modifiers": [
+      {
+        "type": "tfc:damage_crafting_remainder"
+      }
+    ]
+  },
+  "result": {
+    "id": "iaftfc:metal/block/dragonsteel_fire",
+    "count": 8
+  }
+}

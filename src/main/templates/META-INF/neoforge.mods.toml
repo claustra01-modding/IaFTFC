@@ -47,7 +47,7 @@ authors="claustra01"
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Adds Ice and Fire: Community Edition dragon roosts and caves to
-TerraFirmaCraft world generation.
+TerraFirmaCraft world generation and integrates Dragonsteel into TFC metalworking.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
@@ -92,7 +92,7 @@ TerraFirmaCraft world generation.
 [[dependencies.${mod_id}]]
     modId="tfc"
     type="required"
-    reason="IaFTFC adds dragon structures to TerraFirmaCraft worlds."
+    reason="IaFTFC integrates dragon structures and Dragonsteel metalworking with TerraFirmaCraft."
     versionRange="[4.2.5,)"
     ordering="AFTER"
     side="BOTH"
@@ -100,7 +100,7 @@ TerraFirmaCraft world generation.
 [[dependencies.${mod_id}]]
     modId="iceandfire"
     type="required"
-    reason="IaFTFC uses Ice and Fire CE dragon structures and world generation."
+    reason="IaFTFC uses Ice and Fire CE dragon structures, Dragon Forge, tools, and armor."
     versionRange="[2.0,)"
     ordering="AFTER"
     side="BOTH"
