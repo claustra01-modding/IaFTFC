@@ -43,7 +43,6 @@ CATEGORIES = {
     "large_vessels": Category("huge", "heavy", "large_vessels"),
     "empty_jars": Category("normal", "medium", "empty_jars"),
     "filled_jars": Category("normal", "heavy", "filled_jars"),
-    "forge_blocks": Category("large", "very_heavy", "bloomery"),
     "furniture": Category("large", "light", "scribing_tables"),
     "dragon_bones": Category("very_large", "medium", "logs"),
     "chains": Category("normal", "heavy", "vessels"),
@@ -147,8 +146,6 @@ def classify_block(name: str) -> str:
         return "chests"
     if name == "lectern" or name.startswith("podium_"):
         return "furniture"
-    if name.startswith("dragonforge_"):
-        return "forge_blocks"
     if name == "pixie_jar_empty":
         return "empty_jars"
     if name.startswith("pixie_jar_"):

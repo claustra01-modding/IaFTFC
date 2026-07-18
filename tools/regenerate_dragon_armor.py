@@ -62,6 +62,16 @@ def generate_data(root: Path) -> None:
             item = f"iaftfc:dragonarmor_{metal}_{part}"
             write_json(root, f"data/iaftfc/recipe/dragon_armor/{metal}_{part}.json", recipe(item, metal, pattern))
 
+    write_json(root, "data/iaftfc/tfc/item_size/dragon_armor.json", {
+        "ingredient": [
+            {"item": f"iaftfc:dragonarmor_{metal}_{part}"}
+            for metal in METALS
+            for part in PARTS
+        ],
+        "size": "very_large",
+        "weight": "very_heavy",
+    })
+
 
 def load_image(archive: ZipFile, member: str) -> Image.Image:
     with Image.open(BytesIO(archive.read(member))) as image:
