@@ -1,0 +1,17 @@
+{
+  "placement": {
+    "type": "tfc:climate",
+    "salt": 9821380,
+    "separation": 12,
+    "spacing": 18,
+    "climate": {
+      "max_temperature": 5.0
+    }
+  },
+  "structures": [
+    {
+      "structure": "iceandfire:ice_dragon_cave",
+      "weight": 1
+    }
+  ]
+}

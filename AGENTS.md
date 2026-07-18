@@ -16,15 +16,20 @@
 
 バージョン番号は `gradle.properties` を正とし、この節と食い違う場合は同ファイルを確認して本書も更新すること。
 
+IaFTFC の `mod_version` は常に `0.0.1` で固定し、機能追加や修正の際にも変更しない。
+
 ## 実装方針
 
 - Java ソースは `src/main/java/net/claustra01/iaftfc/` に置く。
 - IaFTFC 固有リソースの名前空間は `iaftfc` とする。他 Mod のタグへ値を追加する互換データに限り、対象 Mod の名前空間（現在は `iceandfire`）へ `replace: false` のタグファイルを置く。
 - サンプルの `com.example.examplemod`、`examplemod`、サンプルブロック／アイテム／設定は製品コードに残さない。
-- TFC 4.x と IaF CE 2.x は必須依存関係として Mod メタデータに明記する。
+- TFC 4.2.5 以上と IaF CE 2.x は必須依存関係として Mod メタデータに明記する。
 - 他 Mod の内部実装への依存は最小限にし、公開 API、レジストリ、タグ、JSON データを優先する。
-- ドラゴン構造物は IaF CE の `iceandfire:structure_gen/fire`、`iceandfire:structure_gen/ice`、`iceandfire:structure_gen/lightning` バイオームタグへ、TFC が提供する NeoForge 共通気候タグを追加して有効化する。
+- ドラゴン構造物は IaF CE の `iceandfire:structure_gen/fire`、`iceandfire:structure_gen/ice`、`iceandfire:structure_gen/lightning` バイオームタグへ、`#iaftfc:dragon_structure_land` を追加して TFC の主要な陸上地形で有効化する。
+- TFC のバイオーム ID は地形分類であって実気候ではないため、属性の選別にバイオーム名を使わない。
+- IaF CE の巣・洞窟の構造物セットを属性別に分割し、TFC 4.2.5 の `tfc:climate` 配置でファイアは平均気温15℃以上、アイスは平均気温5℃以下、ライトニングは地下水量300以上に制限する。
 - IaF CE 本体が構造物、ドラゴン、戦利品、生成間隔、生成確率を管理するため、IaFTFC 側で同じ構造物を複製しない。
+- スポーン地点周辺の生成禁止距離は IaF CE の `dangerousDistanceLimit`（既定値 1000 ブロック）をそのまま使用し、IaFTFC 側では上書きしない。
 - ワールド生成は、新規チャンクで決定的に動作し、既存チャンクを暗黙に変更しない設計にする。
 - IaF CE の構造物 ID や TFC のバイオームタグは、対象バージョンの実物または公式ソースで確認してから固定する。
 - クライアント専用クラスを共通／サーバー側から参照しない。専用サーバーでのロードを必ず考慮する。
@@ -56,7 +61,11 @@
 ## 現在の作業状況
 
 - Mod ID `iaftfc`、パッケージ `net.claustra01.iaftfc` への置き換えは完了している。
-- TFC 4.x と IaF CE 2.x は `neoforge.mods.toml` で必須依存関係として設定済みである。実装はデータ駆動で両 Mod の Java API を参照しないため、コンパイル用 JAR は不要である。
-- 暑い TFC バイオームへファイアドラゴン、寒い TFC バイオームへアイスドラゴン、湿潤な TFC バイオームへライトニングドラゴンの巣と洞窟を追加するタグ統合は実装済みである。
+- TFC 4.2.5 以上と IaF CE 2.x は `neoforge.mods.toml` で必須依存関係として設定済みである。実装はデータ駆動で両 Mod の Java API を参照しないため、コンパイル用 JAR は不要である。
+- Mod バージョンは固定値 `0.0.1` である。
+- 主要な TFC 陸上バイオームを全属性のドラゴン構造物タグへ追加する統合は実装済みである。
+- ファイア、アイス、ライトニングの巣と洞窟を別々の `tfc:climate` 構造物セットへ分割し、実気温・地下水量で生成を制限済みである。
+- エントリーポイントは初期化だけを担当し、ワールド生成のキーと診断処理は `worldgen/DragonWorldgen.java` に集約している。
+- サーバー起動時に、共通陸上タグ、属性別タグ、6つの気候構造物セットを一括検証する診断処理を実装済みである。
 - `./gradlew compileJava` と `./gradlew build` は成功している。
-- TFC と IaF CE を導入した新規ワールドでの実生成確認は未実施である。
+- TFC 4.2.5 と IaF CE 2.0 を導入した環境でドラゴン構造物の生成は確認済みである。実気候による属性分離は未確認である。

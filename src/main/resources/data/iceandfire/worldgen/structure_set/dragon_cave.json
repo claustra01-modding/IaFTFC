@@ -1,0 +1,21 @@
+{
+  "placement": {
+    "type": "tfc:climate",
+    "salt": 9821379,
+    "separation": 12,
+    "spacing": 18,
+    "exclusion_zone": {
+      "chunk_count": 10,
+      "other_set": "minecraft:villages"
+    },
+    "climate": {
+      "min_temperature": 15.0
+    }
+  },
+  "structures": [
+    {
+      "structure": "iceandfire:fire_dragon_cave",
+      "weight": 1
+    }
+  ]
+}

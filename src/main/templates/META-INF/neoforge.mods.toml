@@ -93,7 +93,7 @@ TerraFirmaCraft world generation.
     modId="tfc"
     type="required"
     reason="IaFTFC adds dragon structures to TerraFirmaCraft worlds."
-    versionRange="[4.0,)"
+    versionRange="[4.2.5,)"
     ordering="AFTER"
     side="BOTH"
 

@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    {
-      "id": "#c:is_hot/overworld",
-      "required": false
-    }
+    "#iaftfc:dragon_structure_land"
   ]
 }

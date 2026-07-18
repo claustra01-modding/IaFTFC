@@ -1,0 +1,17 @@
+{
+  "placement": {
+    "type": "tfc:climate",
+    "salt": 3747895,
+    "separation": 6,
+    "spacing": 15,
+    "climate": {
+      "min_groundwater": 300.0
+    }
+  },
+  "structures": [
+    {
+      "structure": "iceandfire:lightning_dragon_roost",
+      "weight": 1
+    }
+  ]
+}
