@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "iceandfire:chain",
+      "required": false
+    },
+    {
+      "id": "iceandfire:chain_link",
+      "required": false
+    },
+    {
+      "id": "iceandfire:chain_sticky",
+      "required": false
+    }
+  ]
+}
