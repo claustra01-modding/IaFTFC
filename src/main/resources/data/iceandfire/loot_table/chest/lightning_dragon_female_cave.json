@@ -8,8 +8,9 @@
       },
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "tfc:gem/diamond",
+          "weight": 2,
+          "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/gems",
           "functions": [
             {
               "function": "set_count",
@@ -19,8 +20,7 @@
                 "max": 4
               }
             }
-          ],
-          "weight": 2
+          ]
         },
         {
           "type": "minecraft:item",
@@ -38,17 +38,10 @@
           "weight": 7
         },
         {
-          "type": "minecraft:item",
-          "name": "tfc:metal/ingot/wrought_iron",
+          "weight": 20,
+          "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/ingots/dangerous",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 4
-              }
-            },
             {
               "function": "set_count",
               "count": {
@@ -56,8 +49,7 @@
                 "value": 10
               }
             }
-          ],
-          "weight": 20
+          ]
         },
         {
           "type": "item",
@@ -123,14 +115,6 @@
           "name": "tfc:metal/ingot/copper",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 4
-              }
-            },
-            {
               "function": "set_count",
               "count": {
                 "type": "minecraft:constant",
@@ -144,14 +128,6 @@
           "type": "minecraft:item",
           "name": "tfc:ore/small_native_copper",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 4,
-                "max": 12
-              }
-            },
             {
               "function": "set_count",
               "count": {
@@ -192,7 +168,9 @@
           "weight": 15
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/dangerous/sword",
           "functions": [
             {
               "function": "set_count",
@@ -201,12 +179,12 @@
                 "value": 1
               }
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/dangerous/helmet",
           "functions": [
             {
               "function": "set_count",
@@ -215,12 +193,12 @@
                 "value": 1
               }
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/dangerous/chestplate",
           "functions": [
             {
               "function": "set_count",
@@ -229,12 +207,12 @@
                 "value": 1
               }
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/dangerous/greaves",
           "functions": [
             {
               "function": "set_count",
@@ -243,12 +221,12 @@
                 "value": 1
               }
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/dangerous/boots",
           "functions": [
             {
               "function": "set_count",
@@ -257,9 +235,7 @@
                 "value": 1
               }
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
           "type": "item",

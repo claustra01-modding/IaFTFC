@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/ingot/copper"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/ingot/bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/ingot/bismuth_bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/ingot/black_bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/ingot/wrought_iron"
+        }
+      ]
+    }
+  ]
+}

@@ -20,8 +20,9 @@
           ]
         },
         {
-          "type": "minecraft:item",
-          "name": "tfc:gem/diamond",
+          "weight": 2,
+          "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/gems",
           "functions": [
             {
               "function": "set_count",
@@ -31,8 +32,7 @@
                 "max": 4
               }
             }
-          ],
-          "weight": 2
+          ]
         },
         {
           "type": "minecraft:item",
@@ -50,17 +50,10 @@
           "weight": 3
         },
         {
-          "type": "minecraft:item",
-          "name": "tfc:metal/ingot/wrought_iron",
+          "weight": 20,
+          "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/ingots/lategame",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2,
-                "max": 6
-              }
-            },
             {
               "function": "set_count",
               "count": {
@@ -69,8 +62,7 @@
                 "max": 25
               }
             }
-          ],
-          "weight": 20
+          ]
         },
         {
           "type": "item",
@@ -122,14 +114,6 @@
           "name": "tfc:metal/ingot/copper",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2,
-                "max": 6
-              }
-            },
-            {
               "function": "set_count",
               "count": {
                 "type": "minecraft:uniform",
@@ -144,14 +128,6 @@
           "type": "minecraft:item",
           "name": "tfc:ore/small_native_copper",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 6,
-                "max": 16
-              }
-            },
             {
               "function": "set_count",
               "count": {
@@ -192,7 +168,9 @@
           "weight": 5
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/sword",
           "functions": [
             {
               "function": "set_count",
@@ -200,18 +178,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_rare"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/helmet",
           "functions": [
             {
               "function": "set_count",
@@ -219,18 +192,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_rare"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/chestplate",
           "functions": [
             {
               "function": "set_count",
@@ -238,18 +206,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_rare"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/greaves",
           "functions": [
             {
               "function": "set_count",
@@ -257,18 +220,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_rare"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/boots",
           "functions": [
             {
               "function": "set_count",
@@ -276,18 +234,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_rare"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/sword",
           "functions": [
             {
               "function": "set_count",
@@ -295,18 +248,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/helmet",
           "functions": [
             {
               "function": "set_count",
@@ -314,18 +262,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/chestplate",
           "functions": [
             {
               "function": "set_count",
@@ -333,18 +276,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/greaves",
           "functions": [
             {
               "function": "set_count",
@@ -352,18 +290,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
+          "weight": 5,
           "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/equipment/lategame/boots",
           "functions": [
             {
               "function": "set_count",
@@ -371,19 +304,13 @@
                 "type": "minecraft:constant",
                 "value": 1
               }
-            },
-            {
-              "function": "enchant_with_levels",
-              "levels": 25,
-              "treasure": true
             }
-          ],
-          "weight": 5,
-          "value": "iaftfc:shared/equipment_common"
+          ]
         },
         {
-          "type": "item",
-          "name": "minecraft:obsidian",
+          "weight": 7,
+          "type": "minecraft:loot_table",
+          "value": "iaftfc:shared/utility",
           "functions": [
             {
               "function": "set_count",
@@ -393,8 +320,7 @@
                 "max": 6
               }
             }
-          ],
-          "weight": 7
+          ]
         },
         {
           "type": "item",

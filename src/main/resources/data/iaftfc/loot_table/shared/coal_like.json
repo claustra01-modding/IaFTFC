@@ -1,28 +1,24 @@
 {
-  "type": "minecraft:chest",
+  "type": "minecraft:generic",
   "pools": [
     {
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tfc:metal/sword/steel"
+          "name": "minecraft:charcoal"
         },
         {
           "type": "minecraft:item",
-          "name": "tfc:metal/helmet/steel"
+          "name": "tfc:ore/bituminous_coal"
         },
         {
           "type": "minecraft:item",
-          "name": "tfc:metal/chestplate/steel"
+          "name": "tfc:ore/lignite"
         },
         {
           "type": "minecraft:item",
-          "name": "tfc:metal/greaves/steel"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "tfc:metal/boots/steel"
+          "name": "tfc:ore/graphite"
         }
       ]
     }
