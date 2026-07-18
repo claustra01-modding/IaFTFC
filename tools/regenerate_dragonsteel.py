@@ -41,7 +41,7 @@ UNFINISHED_TEXTURE_SOURCES = {
     "unfinished_greaves": "leggings",
     "unfinished_boots": "boots",
 }
-UNFINISHED_SATURATION = 0.75
+UNFINISHED_SATURATION = 0.55
 ARMOR = {
     "helmet": ("unfinished_helmet", "sheets", 600),
     "chestplate": ("unfinished_chestplate", "double_sheets", 800),
@@ -49,9 +49,9 @@ ARMOR = {
     "boots": ("unfinished_boots", "sheets", 400),
 }
 HEAT_CAPACITY_PER_100 = 2.857143
-FORGING_TEMPERATURE = 960
-WELDING_TEMPERATURE = 1280
-MELT_TEMPERATURE = 1600
+FORGING_TEMPERATURE = 1200
+WELDING_TEMPERATURE = 1600
+MELT_TEMPERATURE = 2000
 
 
 def write_json(root: Path, relative: str, value: object) -> None:
@@ -412,9 +412,9 @@ def generate_assets(root: Path, tfc_path: Path, iaf_path: Path) -> None:
             write_json(root, f"assets/tfc/blockstates/fluid/metal/{metal}.json", {"variants": {"": {"model": f"tfc:block/fluid/metal/{metal}"}}})
             write_json(root, f"assets/tfc/models/block/fluid/metal/{metal}.json", {"textures": {"particle": "block/lava_still"}})
 
-            en[f"block.iaftfc.metal.block.{metal}"] = f"{spec['en']} Block"
-            en[f"block.iaftfc.metal.block.{metal}_slab"] = f"{spec['en']} Slab"
-            en[f"block.iaftfc.metal.block.{metal}_stairs"] = f"{spec['en']} Stairs"
+            en[f"block.iaftfc.metal.block.{metal}"] = f"{spec['en']} Plated Block"
+            en[f"block.iaftfc.metal.block.{metal}_slab"] = f"{spec['en']} Plated Slab"
+            en[f"block.iaftfc.metal.block.{metal}_stairs"] = f"{spec['en']} Plated Stairs"
             en[f"block.iaftfc.metal.anvil.{metal}"] = f"{spec['en']} Anvil"
             en[f"fluid.tfc.metal.{metal}"] = f"Molten {spec['en']}"
 

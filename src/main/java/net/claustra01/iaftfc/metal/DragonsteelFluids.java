@@ -53,7 +53,7 @@ public final class DragonsteelFluids {
             .lightLevel(15)
             .density(3000)
             .viscosity(6000)
-            .temperature(1600)
+            .temperature(2000)
             .canConvertToSource(false)
             .canDrown(false)
             .canExtinguish(false)

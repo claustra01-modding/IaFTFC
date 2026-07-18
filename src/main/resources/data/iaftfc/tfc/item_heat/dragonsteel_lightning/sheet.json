@@ -3,6 +3,6 @@
     "tag": "c:sheets/dragonsteel_lightning"
   },
   "heat_capacity": 5.714286,
-  "forging_temperature": 960,
-  "welding_temperature": 1280
+  "forging_temperature": 1200,
+  "welding_temperature": 1600
 }

@@ -3,6 +3,6 @@
     "item": "iaftfc:metal/anvil/dragonsteel_fire"
   },
   "heat_capacity": 40.000002,
-  "forging_temperature": 960,
-  "welding_temperature": 1280
+  "forging_temperature": 1200,
+  "welding_temperature": 1600
 }
