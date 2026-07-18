@@ -7,5 +7,6 @@
     "amount": 200,
     "id": "tfc:metal/dragonsteel_ice"
   },
-  "temperature": 2000
+  "temperature": 2000,
+  "use_durability": true
 }

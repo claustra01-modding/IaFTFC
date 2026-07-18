@@ -21,11 +21,22 @@ METALS = {
 
 ITEM_FORMS = (
     "ingot", "double_ingot", "sheet", "double_sheet", "rod",
-    "sword_blade",
+    "axe_head", "hoe_head", "pickaxe_head", "shovel_head", "sword_blade",
     "unfinished_helmet", "unfinished_chestplate", "unfinished_greaves", "unfinished_boots",
 )
 TOOL_PARTS = {
+    "axe_head": ("ingots", 100, ["punch_last", "hit_second_last", "upset_third_last"]),
+    "hoe_head": ("ingots", 100, ["punch_last", "hit_not_last", "bend_not_last"]),
+    "pickaxe_head": ("ingots", 100, ["punch_last", "draw_not_last", "bend_not_last"]),
+    "shovel_head": ("ingots", 100, ["punch_last", "hit_not_last"]),
     "sword_blade": ("double_ingots", 200, ["hit_last", "bend_second_last", "bend_third_last"]),
+}
+TOOLS = {
+    "axe": ("axe_head", 100),
+    "hoe": ("hoe_head", 100),
+    "pickaxe": ("pickaxe_head", 100),
+    "shovel": ("shovel_head", 100),
+    "sword": ("sword_blade", 200),
 }
 UNFINISHED_ARMOR = {
     "unfinished_helmet": ("double_sheets", 400, ["hit_last", "bend_second_last", "bend_third_last"]),
@@ -33,8 +44,6 @@ UNFINISHED_ARMOR = {
     "unfinished_greaves": ("double_sheets", 400, ["hit_any", "draw_any", "bend_any"]),
     "unfinished_boots": ("sheets", 200, ["bend_last", "bend_second_last", "shrink_third_last"]),
 }
-DISABLED_TOOLS = ("axe", "hoe", "pickaxe", "shovel")
-OBSOLETE_TOOL_HEADS = ("axe_head", "hoe_head", "pickaxe_head", "shovel_head")
 UNFINISHED_TEXTURE_SOURCES = {
     "unfinished_helmet": "helmet",
     "unfinished_chestplate": "chestplate",
@@ -64,35 +73,6 @@ def write_tag(root: Path, registry: str, path: str, values: list[object]) -> Non
     write_json(root, f"data/c/tags/{registry}/{path}.json", {"replace": False, "values": values})
 
 
-def remove_obsolete_tool_support(root: Path) -> None:
-    for metal in METALS:
-        for head in OBSOLETE_TOOL_HEADS:
-            for relative in (
-                f"assets/iaftfc/models/item/metal/{head}/{metal}.json",
-                f"assets/iaftfc/textures/item/metal/{head}/{metal}.png",
-                f"data/iaftfc/recipe/anvil/metal/{head}/{metal}.json",
-                f"data/iaftfc/recipe/heating/metal/{head}/{metal}.json",
-                f"data/iaftfc/tfc/item_heat/{metal}/{head}.json",
-            ):
-                (root / relative).unlink(missing_ok=True)
-        for tool in DISABLED_TOOLS:
-            for relative in (
-                f"data/iaftfc/recipe/heating/metal/{tool}/{metal}.json",
-                f"data/iaftfc/tfc/item_heat/{metal}/{tool}.json",
-            ):
-                (root / relative).unlink(missing_ok=True)
-    for head in OBSOLETE_TOOL_HEADS:
-        for relative in (
-            f"assets/iaftfc/models/item/metal/{head}",
-            f"assets/iaftfc/textures/item/metal/{head}",
-            f"data/iaftfc/recipe/anvil/metal/{head}",
-            f"data/iaftfc/recipe/heating/metal/{head}",
-        ):
-            directory = root / relative
-            if directory.exists():
-                directory.rmdir()
-
-
 def heat_capacity(amount: int) -> float:
     return round(HEAT_CAPACITY_PER_100 * amount / 100, 6)
 
@@ -106,13 +86,16 @@ def item_heat(root: Path, metal: str, name: str, ingredient: object, amount: int
     })
 
 
-def heating(root: Path, metal: str, name: str, ingredient: object, amount: int) -> None:
-    write_json(root, f"data/iaftfc/recipe/heating/metal/{name}/{metal}.json", {
+def heating(root: Path, metal: str, name: str, ingredient: object, amount: int, *, use_durability: bool = False) -> None:
+    recipe = {
         "type": "tfc:heating",
         "ingredient": ingredient,
         "result_fluid": {"amount": amount, "id": f"tfc:metal/{metal}"},
         "temperature": MELT_TEMPERATURE,
-    })
+    }
+    if use_durability:
+        recipe["use_durability"] = True
+    write_json(root, f"data/iaftfc/recipe/heating/metal/{name}/{metal}.json", recipe)
 
 
 def self_drop(block: str) -> dict:
@@ -124,6 +107,35 @@ def self_drop(block: str) -> dict:
             "conditions": [{"condition": "minecraft:survives_explosion"}],
         }],
     }
+
+
+def validate_tool_recipe_sources(tfc_path: Path, iaf_path: Path) -> None:
+    with ZipFile(tfc_path) as tfc, ZipFile(iaf_path) as iaf:
+        for part, (input_form, _amount, rules) in TOOL_PARTS.items():
+            source = json.loads(tfc.read(f"data/tfc/recipe/anvil/metal/{part}/red_steel.json"))
+            if (
+                source.get("type") != "tfc:anvil"
+                or source.get("apply_bonus") is not True
+                or source.get("ingredient") != {"tag": f"c:{input_form}/red_steel"}
+                or source.get("rules") != rules
+            ):
+                raise ValueError(f"TFC Red Steel {part} anvil recipe no longer matches the Dragonsteel template")
+
+        for tool, (part, _amount) in TOOLS.items():
+            source = json.loads(tfc.read(f"data/tfc/recipe/crafting/metal/{tool}/red_steel.json"))
+            if (
+                source.get("type") != "tfc:advanced_shaped_crafting"
+                or source.get("pattern") != ["X", "S"]
+                or source.get("key", {}).get("S") != {"tag": "c:rods/wooden"}
+                or source.get("key", {}).get("X") != {"item": f"tfc:metal/{part}/red_steel"}
+                or source.get("result", {}).get("modifiers") != [{"type": "tfc:copy_forging_bonus"}]
+            ):
+                raise ValueError(f"TFC Red Steel {tool} assembly recipe no longer matches the Dragonsteel template")
+
+            for metal in METALS:
+                recipe = json.loads(iaf.read(f"data/iceandfire/recipe/{metal}_{tool}.json"))
+                if recipe.get("result", {}).get("id") != f"iceandfire:{metal}_{tool}":
+                    raise ValueError(f"IaF {metal}_{tool} recipe has an unexpected result")
 
 
 def generate_data(root: Path) -> None:
@@ -220,19 +232,16 @@ def generate_data(root: Path) -> None:
             item_heat(root, metal, part, {"item": part_id}, amount)
             heating(root, metal, part, {"item": part_id}, amount)
 
-        output = f"iceandfire:{metal}_sword"
-        write_json(root, f"data/iceandfire/recipe/{metal}_sword.json", {
+        for tool, (part, amount) in TOOLS.items():
+            output = f"iceandfire:{metal}_{tool}"
+            write_json(root, f"data/iceandfire/recipe/{metal}_{tool}.json", {
                 "type": "tfc:advanced_shaped_crafting",
-                "key": {"S": {"tag": "c:rods/wooden"}, "X": {"item": f"iaftfc:metal/sword_blade/{metal}"}},
+                "key": {"S": {"tag": "c:rods/wooden"}, "X": {"item": f"iaftfc:metal/{part}/{metal}"}},
                 "pattern": ["X", "S"],
                 "result": {"modifiers": [{"type": "tfc:copy_forging_bonus"}], "stack": {"count": 1, "id": output}},
-        })
-        item_heat(root, metal, "sword", {"item": output}, 200)
-        heating(root, metal, "sword", {"item": output}, 200)
-        for tool in DISABLED_TOOLS:
-            write_json(root, f"data/iceandfire/recipe/{metal}_{tool}.json", {
-                "neoforge:conditions": [{"type": "neoforge:false"}],
             })
+            item_heat(root, metal, tool, {"item": output}, amount)
+            heating(root, metal, tool, {"item": output}, amount, use_durability=True)
 
         for unfinished, (input_form, amount, rules) in UNFINISHED_ARMOR.items():
             unfinished_id = f"iaftfc:metal/{unfinished}/{metal}"
@@ -454,7 +463,7 @@ def main() -> None:
     parser.add_argument("--iaf-jar", required=True, type=Path)
     parser.add_argument("--output", default=Path("src/main/resources"), type=Path)
     args = parser.parse_args()
-    remove_obsolete_tool_support(args.output)
+    validate_tool_recipe_sources(args.tfc_jar, args.iaf_jar)
     generate_data(args.output)
     generate_dragon_forge_brick_recipes(args.output, args.tfc_jar, args.iaf_jar)
     generate_assets(args.output, args.tfc_jar, args.iaf_jar)

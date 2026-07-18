@@ -59,19 +59,7 @@ public final class IaFTFCClientGameEvents {
         item("dragonarmor_silver_head"),
         item("dragonarmor_silver_neck"),
         item("dragonarmor_silver_body"),
-        item("dragonarmor_silver_tail"),
-        item("dragonsteel_fire_axe"),
-        item("dragonsteel_fire_hoe"),
-        item("dragonsteel_fire_pickaxe"),
-        item("dragonsteel_fire_shovel"),
-        item("dragonsteel_ice_axe"),
-        item("dragonsteel_ice_hoe"),
-        item("dragonsteel_ice_pickaxe"),
-        item("dragonsteel_ice_shovel"),
-        item("dragonsteel_lightning_axe"),
-        item("dragonsteel_lightning_hoe"),
-        item("dragonsteel_lightning_pickaxe"),
-        item("dragonsteel_lightning_shovel")
+        item("dragonarmor_silver_tail")
     );
 
     private IaFTFCClientGameEvents() {
