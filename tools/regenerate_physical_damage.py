@@ -39,7 +39,10 @@ REFERENCE_FILES = {
     "blue_steel": "blue_steel_armor",
 }
 DRAGONSTEEL = Resistance(75.0, 75.0, 75.0)
-DRAGON = Resistance(200.0, 200.0, 200.0)
+# TFC animals have no extra entity damage resistance. IaF dragons already gain
+# substantial health and armor from their native implementation, so this is a
+# modest physical bonus rather than another boss-scale defense layer.
+DRAGON = Resistance(30.0, 30.0, 30.0)
 
 
 def read_json(archive: ZipFile, name: str) -> dict:
