@@ -80,8 +80,8 @@
           "weight": 20
         },
         {
-          "type": "item",
-          "name": "minecraft:chain",
+          "type": "minecraft:item",
+          "name": "tfc:metal/chain/wrought_iron",
           "functions": [
             {
               "function": "set_count",

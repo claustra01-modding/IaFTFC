@@ -78,6 +78,9 @@ SMALL_ORES = {
     "iceandfire:silver_nugget": "tfc:ore/small_native_silver",
     "iceandfire:copper_nugget": "tfc:ore/small_native_copper",
 }
+DIRECT_ITEM_REPLACEMENTS = {
+    "minecraft:chain": "tfc:metal/chain/wrought_iron",
+}
 GEMS = ("amethyst", "diamond", "emerald", "lapis_lazuli", "opal", "pyrite", "ruby", "sapphire", "topaz")
 COAL_LIKE = ("minecraft:charcoal", "tfc:ore/bituminous_coal", "tfc:ore/lignite", "tfc:ore/graphite")
 UTILITY = (
@@ -177,6 +180,8 @@ def transform_entry(
         return table_entry(source, f"{MOD_ID}:shared/ingots/{profile}", source.get("functions"))
     if name in SMALL_ORES:
         return replace_item(source, SMALL_ORES[name])
+    if name in DIRECT_ITEM_REPLACEMENTS:
+        return replace_item(source, DIRECT_ITEM_REPLACEMENTS[name])
 
     family = equipment_family(name)
     if family is not None:
@@ -244,6 +249,8 @@ def validate_entry_translation(source: dict, generated: dict, dragon: str, profi
         expected_type, expected_target = "minecraft:item", SMALL_ORES[name]
         if "/small_" not in expected_target:
             raise ValueError(f"{location}: nugget does not map to a small ore")
+    elif name in DIRECT_ITEM_REPLACEMENTS:
+        expected_type, expected_target = "minecraft:item", DIRECT_ITEM_REPLACEMENTS[name]
     elif family is not None:
         expected_type, expected_target = "minecraft:loot_table", f"{MOD_ID}:shared/equipment/{profile}/{family}"
     elif name == "minecraft:obsidian":
@@ -354,13 +361,17 @@ def validate_shared_tables(
 
 def validate_tfc_item_ids(root: Path, tfc_jar: Path) -> None:
     ids: set[str] = set()
-    for path in (root / f"data/{MOD_ID}/loot_table/shared").rglob("*.json"):
-        table = json.loads(path.read_text(encoding="utf-8"))
-        ids.update(
-            node["name"].removeprefix("tfc:")
-            for node in walk(table)
-            if isinstance(node, dict) and node.get("type") == "minecraft:item" and node.get("name", "").startswith("tfc:")
-        )
+    for directory in (
+        root / f"data/{MOD_ID}/loot_table/shared",
+        root / "data/iceandfire/loot_table/chest",
+    ):
+        for path in directory.rglob("*.json"):
+            table = json.loads(path.read_text(encoding="utf-8"))
+            ids.update(
+                node["name"].removeprefix("tfc:")
+                for node in walk(table)
+                if isinstance(node, dict) and node.get("type") == "minecraft:item" and node.get("name", "").startswith("tfc:")
+            )
     with ZipFile(tfc_jar) as archive:
         resources = set(archive.namelist())
     missing = [item_id for item_id in sorted(ids) if f"assets/tfc/models/item/{item_id}.json" not in resources]
