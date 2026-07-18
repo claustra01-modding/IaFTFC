@@ -53,9 +53,8 @@ def recipe(result: str, ingredient: str, pattern: list[str]) -> dict:
 
 def generate_data(root: Path) -> None:
     for material, ingredient in EXISTING_MATERIALS.items():
-        item_material = material.replace("dragon_steel", "dragonsteel")
         for part, pattern in PARTS.items():
-            item = f"iceandfire:dragonarmor_{item_material}_{part}"
+            item = f"iceandfire:dragonarmor_{material}_{part}"
             write_json(root, f"data/iceandfire/recipe/dragonarmor_{material}_{part}.json", recipe(item, ingredient, pattern))
 
     for metal in METALS:
