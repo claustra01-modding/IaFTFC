@@ -1,0 +1,70 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/sword/bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/helmet/bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/chestplate/bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/greaves/bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/boots/bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/sword/bismuth_bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/helmet/bismuth_bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/chestplate/bismuth_bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/greaves/bismuth_bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/boots/bismuth_bronze"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/sword/wrought_iron"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/helmet/wrought_iron"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/chestplate/wrought_iron"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/greaves/wrought_iron"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/boots/wrought_iron"
+        }
+      ]
+    }
+  ]
+}

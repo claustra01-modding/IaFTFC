@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/sword/steel"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/helmet/steel"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/chestplate/steel"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/greaves/steel"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/boots/steel"
+        }
+      ]
+    }
+  ]
+}
