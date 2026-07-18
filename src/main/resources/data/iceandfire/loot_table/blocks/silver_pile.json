@@ -22,7 +22,7 @@
               "count": 1
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         },
         {
           "type": "minecraft:item",
@@ -41,7 +41,7 @@
               "count": 2
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         },
         {
           "type": "minecraft:item",
@@ -60,7 +60,7 @@
               "count": 3
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         },
         {
           "type": "minecraft:item",
@@ -79,7 +79,7 @@
               "count": 4
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         },
         {
           "type": "minecraft:item",
@@ -98,7 +98,7 @@
               "count": 5
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         },
         {
           "type": "minecraft:item",
@@ -117,7 +117,7 @@
               "count": 6
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         },
         {
           "type": "minecraft:item",
@@ -136,7 +136,7 @@
               "count": 7
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         },
         {
           "type": "minecraft:item",
@@ -155,7 +155,7 @@
               "count": 8
             }
           ],
-          "name": "tfc:powder/native_silver"
+          "name": "tfc:ore/small_native_silver"
         }
       ]
     }
