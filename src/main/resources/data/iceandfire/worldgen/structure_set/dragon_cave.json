@@ -2,14 +2,15 @@
   "placement": {
     "type": "tfc:climate",
     "salt": 9821379,
-    "separation": 12,
-    "spacing": 18,
+    "separation": 20,
+    "spacing": 30,
     "exclusion_zone": {
       "chunk_count": 10,
       "other_set": "minecraft:villages"
     },
     "climate": {
-      "min_temperature": 15.0
+      "min_temperature": 15.0,
+      "max_groundwater": 299.9
     }
   },
   "structures": [
