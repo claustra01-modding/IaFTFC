@@ -37,7 +37,7 @@
       "item": "iceandfire:dragonsteel_lightning_boots"
     }
   ],
-  "piercing": 75.0,
-  "slashing": 75.0,
-  "crushing": 75.0
+  "piercing": 70.0,
+  "slashing": 60.0,
+  "crushing": 70.0
 }

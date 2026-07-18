@@ -38,7 +38,8 @@ REFERENCE_FILES = {
     "red_steel": "red_steel_armor",
     "blue_steel": "blue_steel_armor",
 }
-DRAGONSTEEL = Resistance(75.0, 75.0, 75.0)
+PLAYER_DRAGONSTEEL = Resistance(70.0, 60.0, 70.0)
+DRAGON_ARMOR_DRAGONSTEEL = Resistance(70.0, 60.0, 70.0)
 # TFC animals have no extra entity damage resistance. IaF dragons already gain
 # substantial health and armor from their native implementation, so this is a
 # modest physical bonus rather than another boss-scale defense layer.
@@ -115,7 +116,7 @@ def player_armor_groups() -> dict[str, tuple[Resistance | str, list[dict]]]:
         "silver_metal": ("bronze", armor_set("armor_silver_metal")),
         "robust_hide": ("wrought_iron", robust_hide),
         "dragon_scale": ("black_steel", dragon_scale),
-        "dragonsteel": (DRAGONSTEEL, dragonsteel),
+        "dragonsteel": (PLAYER_DRAGONSTEEL, dragonsteel),
         "hippogryph_iron": ("wrought_iron", [item("iron_hippogryph_armor")]),
         "hippogryph_gold": ("bronze", [item("gold_hippogryph_armor")]),
         "hippogryph_diamond": ("steel", [item("diamond_hippogryph_armor")]),
@@ -140,7 +141,7 @@ def dragon_armor_groups() -> dict[str, tuple[Resistance | str, list[dict]]]:
         )
     for element in ("fire", "ice", "lightning"):
         groups[f"dragon_armor_dragonsteel_{element}"] = (
-            DRAGONSTEEL,
+            DRAGON_ARMOR_DRAGONSTEEL,
             armor_set(f"dragonarmor_dragon_steel_{element}", DRAGON_ARMOR_PARTS),
         )
     return groups

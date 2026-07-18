@@ -13,7 +13,7 @@
       "item": "iceandfire:dragonarmor_dragon_steel_ice_tail"
     }
   ],
-  "piercing": 75.0,
-  "slashing": 75.0,
-  "crushing": 75.0
+  "piercing": 70.0,
+  "slashing": 60.0,
+  "crushing": 70.0
 }
