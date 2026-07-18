@@ -6,7 +6,8 @@
   "mixins": [
     "DragonCavePieceMixin",
     "DragonForgeBlockEntityMixin",
-    "DragonRoostPieceMixin"
+    "DragonRoostPieceMixin",
+    "IafDragonDestructionManagerMixin"
   ],
   "client": [],
   "server": []
