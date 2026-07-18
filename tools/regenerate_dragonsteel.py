@@ -300,6 +300,25 @@ def generate_data(root: Path) -> None:
     write_json(root, "data/tfc/tfc/item_size/iaftfc_dragonsteel_parts.json", {"ingredient": parts_items, "size": "large", "weight": "medium"})
 
 
+def generate_dragon_forge_brick_recipes(root: Path, tfc_path: Path, iaf_path: Path) -> None:
+    with ZipFile(tfc_path) as tfc, ZipFile(iaf_path) as iaf:
+        fire_bricks = json.loads(tfc.read("data/tfc/recipe/crafting/fire_bricks.json"))
+        if fire_bricks.get("result", {}).get("id") != "tfc:fire_bricks":
+            raise ValueError("TFC fire brick block recipe has an unexpected result")
+
+        for dragon in ("fire", "ice", "lightning"):
+            recipe_name = f"dragonforge_{dragon}_brick"
+            source = json.loads(iaf.read(f"data/iceandfire/recipe/{recipe_name}.json"))
+            if source.get("type") != "minecraft:crafting_shaped":
+                raise ValueError(f"IaF {recipe_name} is no longer a shaped recipe")
+            if source.get("key", {}).get("B", {}).get("item") != "minecraft:stone_bricks":
+                raise ValueError(f"IaF {recipe_name} no longer uses Stone Bricks as B")
+            if source.get("result", {}).get("id") != f"iceandfire:{recipe_name}":
+                raise ValueError(f"IaF {recipe_name} has an unexpected result")
+            source["key"]["B"] = {"item": "tfc:fire_bricks"}
+            write_json(root, f"data/iceandfire/recipe/{recipe_name}.json", source)
+
+
 def load_png(archive: ZipFile, member: str) -> tuple[tuple[int, int], list[tuple[int, int, int, int]]]:
     with Image.open(BytesIO(archive.read(member))) as image:
         rgba = image.convert("RGBA")
@@ -437,6 +456,7 @@ def main() -> None:
     args = parser.parse_args()
     remove_obsolete_tool_support(args.output)
     generate_data(args.output)
+    generate_dragon_forge_brick_recipes(args.output, args.tfc_jar, args.iaf_jar)
     generate_assets(args.output, args.tfc_jar, args.iaf_jar)
 
 
