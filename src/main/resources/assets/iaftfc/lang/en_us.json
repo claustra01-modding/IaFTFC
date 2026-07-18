@@ -18,6 +18,11 @@
   "item.iaftfc.dragonarmor_blue_steel": "Blue Steel Dragon Armor",
   "item.iaftfc.dragonarmor_red_steel": "Red Steel Dragon Armor",
   "item.iaftfc.dragonarmor_steel": "Steel Dragon Armor",
+  "item.iaftfc.dragonbone.axe_head": "Dragon Bone Axe Head",
+  "item.iaftfc.dragonbone.hoe_head": "Dragon Bone Hoe Head",
+  "item.iaftfc.dragonbone.pickaxe_head": "Dragon Bone Pickaxe Head",
+  "item.iaftfc.dragonbone.shovel_head": "Dragon Bone Shovel Head",
+  "item.iaftfc.dragonbone.sword_blade": "Dragon Bone Sword Blade",
   "item.iaftfc.metal.double_ingot.dragonsteel_fire": "Fire Dragonsteel Double Ingot",
   "item.iaftfc.metal.double_ingot.dragonsteel_ice": "Ice Dragonsteel Double Ingot",
   "item.iaftfc.metal.double_ingot.dragonsteel_lightning": "Lightning Dragonsteel Double Ingot",
@@ -49,5 +54,6 @@
   "item.iaftfc.metal.unfinished_helmet.dragonsteel_ice": "Ice Dragonsteel Unfinished Helmet",
   "item.iaftfc.metal.unfinished_helmet.dragonsteel_lightning": "Lightning Dragonsteel Unfinished Helmet",
   "itemGroup.iaftfc.dragonsteel": "IaFTFC Dragonsteel",
-  "tfc.jei.dragon_scale_knapping": "Dragon Scale Knapping Recipe"
+  "tfc.jei.dragon_scale_knapping": "Dragon Scale Knapping Recipe",
+  "tfc.jei.dragonbone_knapping": "Dragon Bone Knapping Recipe"
 }

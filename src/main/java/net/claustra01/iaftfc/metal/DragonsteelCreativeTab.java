@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import net.claustra01.iaftfc.IaFTFC;
 import net.claustra01.iaftfc.dragonarmor.DragonArmorItems;
+import net.claustra01.iaftfc.dragonbone.DragonboneItems;
 import net.dries007.tfc.util.Metal;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -23,6 +24,10 @@ public final class DragonsteelCreativeTab {
                     .map(entry -> entry.get())
                     .forEach(output::accept);
                 DragonArmorItems.ITEMS.getEntries().stream()
+                    .sorted(Comparator.comparing(entry -> entry.getId().toString()))
+                    .map(entry -> entry.get())
+                    .forEach(output::accept);
+                DragonboneItems.ITEMS.getEntries().stream()
                     .sorted(Comparator.comparing(entry -> entry.getId().toString()))
                     .map(entry -> entry.get())
                     .forEach(output::accept);
