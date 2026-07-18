@@ -3,6 +3,7 @@ package net.claustra01.iaftfc;
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 
+import net.claustra01.iaftfc.dragonarmor.DragonArmorItems;
 import net.claustra01.iaftfc.metal.DragonsteelBlocks;
 import net.claustra01.iaftfc.metal.DragonsteelCreativeTab;
 import net.claustra01.iaftfc.metal.DragonsteelFluids;
@@ -27,6 +28,7 @@ public final class IaFTFC {
         DragonsteelFluids.FLUIDS.register(modEventBus);
         DragonsteelBlocks.register(modEventBus);
         DragonsteelItems.ITEMS.register(modEventBus);
+        DragonArmorItems.ITEMS.register(modEventBus);
         DragonsteelCreativeTab.TABS.register(modEventBus);
         if (FMLEnvironment.dist == Dist.CLIENT) {
             net.claustra01.iaftfc.client.IaFTFCClientEvents.register(modEventBus);

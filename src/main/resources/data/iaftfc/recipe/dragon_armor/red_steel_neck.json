@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "c:double_sheets/red_steel"
+    }
+  },
+  "pattern": [
+    "   ",
+    "###",
+    " ##"
+  ],
+  "result": {
+    "id": "iaftfc:dragonarmor_red_steel_neck"
+  },
+  "show_notification": true
+}

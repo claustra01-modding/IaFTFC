@@ -37,6 +37,7 @@ DISABLED_RECIPES = (
     "silver_pile",
     "silver_shovel",
     "silver_sword",
+    *(f"dragonarmor_{material}_{part}" for material in ("copper", "diamond", "gold", "netherite", "silver") for part in ("head", "neck", "body", "tail")),
 )
 
 DISABLED_RECIPE = {

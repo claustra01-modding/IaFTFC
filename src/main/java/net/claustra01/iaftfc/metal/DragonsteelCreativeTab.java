@@ -3,6 +3,7 @@ package net.claustra01.iaftfc.metal;
 import java.util.Comparator;
 
 import net.claustra01.iaftfc.IaFTFC;
+import net.claustra01.iaftfc.dragonarmor.DragonArmorItems;
 import net.dries007.tfc.util.Metal;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -16,10 +17,16 @@ public final class DragonsteelCreativeTab {
         () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.iaftfc.dragonsteel"))
             .icon(() -> DragonsteelItems.METAL_ITEMS.get(DragonsteelMetal.FIRE).get(Metal.ItemType.INGOT).get().getDefaultInstance())
-            .displayItems((parameters, output) -> DragonsteelItems.ITEMS.getEntries().stream()
-                .sorted(Comparator.comparing(entry -> entry.getId().toString()))
-                .map(entry -> entry.get())
-                .forEach(output::accept))
+            .displayItems((parameters, output) -> {
+                DragonsteelItems.ITEMS.getEntries().stream()
+                    .sorted(Comparator.comparing(entry -> entry.getId().toString()))
+                    .map(entry -> entry.get())
+                    .forEach(output::accept);
+                DragonArmorItems.ITEMS.getEntries().stream()
+                    .sorted(Comparator.comparing(entry -> entry.getId().toString()))
+                    .map(entry -> entry.get())
+                    .forEach(output::accept);
+            })
             .build());
 
     private DragonsteelCreativeTab() {

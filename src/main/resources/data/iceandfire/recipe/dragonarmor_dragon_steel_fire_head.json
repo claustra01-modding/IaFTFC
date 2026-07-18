@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "c:double_sheets/dragonsteel_fire"
+    }
+  },
+  "pattern": [
+    "   ",
+    " ##",
+    "###"
+  ],
+  "result": {
+    "id": "iceandfire:dragonarmor_dragonsteel_fire_head"
+  },
+  "show_notification": true
+}

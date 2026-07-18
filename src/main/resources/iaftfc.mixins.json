@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "DragonCavePieceMixin",
+    "DragonArmorItemMixin",
     "DragonForgeBlockEntityMixin",
     "DragonRoostPieceMixin",
     "IafDragonDestructionManagerMixin"
