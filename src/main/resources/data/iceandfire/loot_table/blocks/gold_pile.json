@@ -19,7 +19,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 2
+              "count": 1
             }
           ],
           "name": "tfc:powder/native_gold"
@@ -38,7 +38,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 4
+              "count": 2
             }
           ],
           "name": "tfc:powder/native_gold"
@@ -57,7 +57,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 6
+              "count": 3
             }
           ],
           "name": "tfc:powder/native_gold"
@@ -76,7 +76,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 8
+              "count": 4
             }
           ],
           "name": "tfc:powder/native_gold"
@@ -95,7 +95,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 10
+              "count": 5
             }
           ],
           "name": "tfc:powder/native_gold"
@@ -114,7 +114,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 12
+              "count": 6
             }
           ],
           "name": "tfc:powder/native_gold"
@@ -133,7 +133,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 14
+              "count": 7
             }
           ],
           "name": "tfc:powder/native_gold"
@@ -152,7 +152,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 16
+              "count": 8
             }
           ],
           "name": "tfc:powder/native_gold"
