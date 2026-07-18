@@ -1,13 +1,7 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
-  "ingredients": [
+  "neoforge:conditions": [
     {
-      "item": "iceandfire:dragonsteel_lightning_block"
+      "type": "neoforge:false"
     }
-  ],
-  "result": {
-    "count": 9,
-    "id": "iaftfc:metal/ingot/dragonsteel_lightning"
-  }
+  ]
 }

@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 
 /** Applies the temperature at which IaFTFC Dragonsteel leaves a Dragon Forge. */
 public final class DragonForgeOutputHeat {
-    public static final float OUTPUT_TEMPERATURE = 1600.0F;
+    public static final float OUTPUT_TEMPERATURE = 1750.0F;
 
     private DragonForgeOutputHeat() {
     }

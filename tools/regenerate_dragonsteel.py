@@ -139,7 +139,6 @@ def generate_data(root: Path) -> None:
         dragon = spec["dragon"]
         steel = spec["steel"]
         ingot = f"iaftfc:metal/ingot/{metal}"
-        old_ingot = f"iceandfire:{metal}_ingot"
         block = f"iaftfc:metal/block/{metal}"
         slab = f"{block}_slab"
         stairs = f"{block}_stairs"
@@ -151,7 +150,7 @@ def generate_data(root: Path) -> None:
         stairs_items.append({"item": stairs})
 
         per_metal_tags = {
-            "ingots": [ingot, old_ingot],
+            "ingots": [ingot],
             "double_ingots": [f"iaftfc:metal/double_ingot/{metal}"],
             "sheets": [f"iaftfc:metal/sheet/{metal}"],
             "double_sheets": [f"iaftfc:metal/double_sheet/{metal}"],
@@ -207,9 +206,7 @@ def generate_data(root: Path) -> None:
             "result": {"id": block, "count": 8},
         })
         write_json(root, f"data/iceandfire/recipe/{metal}_block_to_{metal}_ingot.json", {
-            "type": "minecraft:crafting_shapeless", "category": "misc",
-            "ingredients": [{"item": f"iceandfire:{metal}_block"}],
-            "result": {"count": 9, "id": ingot},
+            "neoforge:conditions": [{"type": "neoforge:false"}],
         })
 
         for part, (input_form, amount, rules) in TOOL_PARTS.items():
@@ -269,9 +266,11 @@ def generate_data(root: Path) -> None:
             ingredient = {"item": item_id}
             item_heat(root, metal, name, ingredient, amount)
             heating(root, metal, name, ingredient, amount)
-        legacy_block = {"item": f"iceandfire:{metal}_block"}
-        item_heat(root, metal, "legacy_block", legacy_block, 900)
-        heating(root, metal, "legacy_block", legacy_block, 900)
+        for relative in (
+            f"data/iaftfc/tfc/item_heat/{metal}/legacy_block.json",
+            f"data/iaftfc/recipe/heating/metal/legacy_block/{metal}.json",
+        ):
+            (root / relative).unlink(missing_ok=True)
         write_json(root, f"data/iaftfc/tfc/fluid_heat/{metal}.json", {
             "fluid": f"tfc:metal/{metal}", "melt_temperature": MELT_TEMPERATURE, "specific_heat_capacity": 0.00857,
         })
@@ -347,7 +346,16 @@ def save_png(path: Path, size: tuple[int, int], pixels: list[tuple[int, int, int
 
 
 def generate_assets(root: Path, tfc_path: Path, iaf_path: Path) -> None:
-    en = {"itemGroup.iaftfc.dragonsteel": "IaFTFC Dragonsteel"}
+    lang_path = root / "assets/iaftfc/lang/en_us.json"
+    en = json.loads(lang_path.read_text(encoding="utf-8")) if lang_path.exists() else {}
+    for key in tuple(en):
+        if key == "itemGroup.iaftfc.dragonsteel" or key.startswith((
+            "item.iaftfc.metal.",
+            "block.iaftfc.metal.",
+            "fluid.tfc.metal.dragonsteel_",
+        )):
+            del en[key]
+    en["itemGroup.iaftfc.dragonsteel"] = "IaFTFC Dragonsteel"
     form_names = {
         "ingot": "Ingot", "double_ingot": "Double Ingot",
         "sheet": "Sheet", "double_sheet": "Double Sheet", "rod": "Rod",
