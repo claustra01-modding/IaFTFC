@@ -96,7 +96,7 @@ def transform_entry(entry: dict, dragon: str, male: bool) -> None:
         set_uniform_count(entry, 2 if male else 1, 6 if male else 4)
         return
     if item in ATTRIBUTE_NUGGET_SOURCES:
-        item_entry(entry, f"tfc:powder/native_{ATTRIBUTE_METALS[dragon]}")
+        item_entry(entry, f"tfc:ore/small_native_{ATTRIBUTE_METALS[dragon]}")
         set_uniform_count(entry, 6 if male else 4, 16 if male else 12)
         return
     if is_equipment(item, (RARE_EQUIPMENT_PREFIX,)):

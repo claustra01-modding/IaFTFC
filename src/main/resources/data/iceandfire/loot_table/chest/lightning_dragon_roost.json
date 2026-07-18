@@ -142,7 +142,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tfc:powder/native_copper",
+          "name": "tfc:ore/small_native_copper",
           "functions": [
             {
               "function": "minecraft:set_count",

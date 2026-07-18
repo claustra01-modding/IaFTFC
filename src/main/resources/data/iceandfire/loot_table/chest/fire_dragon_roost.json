@@ -142,7 +142,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "tfc:powder/native_gold",
+          "name": "tfc:ore/small_native_gold",
           "functions": [
             {
               "function": "minecraft:set_count",
