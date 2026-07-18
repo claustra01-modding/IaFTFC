@@ -8,6 +8,7 @@
     "DragonCavePieceMixin",
     "DragonArmorItemMixin",
     "DragonBaseEntityFoodMixin",
+    "DragonEggEntityMixin",
     "DragonForgeBlockEntityMixin",
     "DragonRoostPieceMixin",
     "IafDragonDestructionManagerMixin"
