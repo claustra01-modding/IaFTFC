@@ -1,0 +1,19 @@
+{
+  "ingredient": [
+    {
+      "item": "iceandfire:dragonarmor_dragon_steel_fire_head"
+    },
+    {
+      "item": "iceandfire:dragonarmor_dragon_steel_fire_neck"
+    },
+    {
+      "item": "iceandfire:dragonarmor_dragon_steel_fire_body"
+    },
+    {
+      "item": "iceandfire:dragonarmor_dragon_steel_fire_tail"
+    }
+  ],
+  "piercing": 75.0,
+  "slashing": 75.0,
+  "crushing": 75.0
+}

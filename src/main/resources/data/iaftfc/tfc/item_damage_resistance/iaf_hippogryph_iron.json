@@ -1,0 +1,10 @@
+{
+  "ingredient": [
+    {
+      "item": "iceandfire:iron_hippogryph_armor"
+    }
+  ],
+  "piercing": 20.0,
+  "slashing": 13.2,
+  "crushing": 20.0
+}

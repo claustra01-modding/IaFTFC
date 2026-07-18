@@ -1,0 +1,10 @@
+{
+  "ingredient": [
+    {
+      "item": "iceandfire:netherite_hippogryph_armor"
+    }
+  ],
+  "piercing": 45.0,
+  "slashing": 33.0,
+  "crushing": 50.0
+}
