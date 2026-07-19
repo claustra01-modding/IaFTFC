@@ -5,9 +5,9 @@
 - 本書は作業規約と実装仕様を兼ねる。意図を決める数値、ID、条件、例外、優先順位は残し、作業履歴とコードから機械的に得られる全件一覧は載せない。
 - READMEは利用者向けの短い概要とbuild入口に絞り、詳細仕様や作業履歴を重複掲載しない。
 - 挙動、対応版、依存、ID、有効化条件、生成規則、検証手順を変えた場合は同じ変更で本書も更新する。
-- 現在値は `gradle.properties`、Mod metadata、コード、同梱data、生成scriptを正本とし、対象版の実JAR・公式ソースで確認する。
+- 現在値は `gradle.properties`、Mod metadata、コード、同梱data、本書の生成仕様を正本とし、対象版の実JAR・公式ソースで確認する。
 - 公開API、registry、tag、dataを優先し、Mixinは必要な対象へ限定する。client専用classをcommon/server側から参照しない。
-- 依存JAR、展開物、一時解析物は `.tmp/`、再利用処理は `tools/` に置く。生成済みresourceだけを手編集しない。
+- 依存JAR、展開物、解析・生成scriptは `.tmp/` に置いてGit管理外にする。仕様と生成済みresourceを正本とし、ローカルscriptだけへ仕様を閉じ込めない。
 - JSONはBOMなしUTF-8。公開済みIDとworld互換性を守り、無関係な差分、依存・version更新、format変更を混ぜない。
 
 ## プロジェクトの目的
