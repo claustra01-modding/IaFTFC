@@ -13,7 +13,7 @@
 
 ## プロジェクトの目的
 
-- Mod 名は `IaFTFC`、Mod ID は `iaftfc`、Java パッケージは `net.claustra01.iaftfc` とする。
+- Modのdisplay nameは`Ice and Fire and TerraFirma`とする。内部名は`IaFTFC`、Mod IDは`iaftfc`、Javaパッケージは`net.claustra01.iaftfc`のまま維持する。
 - TerraFirmaCraft（TFC）の世界に Ice and Fire: Community Edition（IaF CE）のドラゴン関連構造物を自然生成し、ドラゴンスチール、食料、ドラゴンの餌をTFCの仕組みへ統合する互換 Mod とする。
 - TFC と IaF CE の既存コンテンツを尊重し、可能な限りデータ駆動のワールド生成で統合する。
 
