@@ -10,6 +10,8 @@
     "DragonBaseEntityFoodMixin",
     "DragonEggEntityMixin",
     "DragonForgeBlockEntityMixin",
+    "DragonForgeRecipeMixin",
+    "DragonForgeRecipeSerializerMixin",
     "DragonRoostPieceMixin",
     "IafDragonDestructionManagerMixin"
   ],

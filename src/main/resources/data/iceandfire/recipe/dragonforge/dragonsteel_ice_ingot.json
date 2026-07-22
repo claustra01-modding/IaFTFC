@@ -2,6 +2,7 @@
   "type": "iceandfire:dragonforge",
   "dragonType": "ice",
   "cookTime": 1000,
+  "output_temperature": 1750.0,
   "input": {
     "tag": "c:ingots/blue_steel"
   },

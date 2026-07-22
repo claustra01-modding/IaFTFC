@@ -1,26 +1,33 @@
 package net.claustra01.iaftfc.metal;
 
 import net.dries007.tfc.common.component.heat.HeatCapability;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.dries007.tfc.common.component.heat.IHeat;
 import net.minecraft.world.item.ItemStack;
 
-/** Applies the temperature at which IaFTFC Dragonsteel leaves a Dragon Forge. */
+/** Applies a recipe-defined temperature to a Dragon Forge output. */
 public final class DragonForgeOutputHeat {
-    public static final float OUTPUT_TEMPERATURE = 1750.0F;
-
     private DragonForgeOutputHeat() {
     }
 
-    public static void apply(ItemStack stack) {
-        if (stack.isEmpty()) {
+    public static void apply(ItemStack stack, float temperature) {
+        if (stack.isEmpty() || temperature <= 0.0F) {
             return;
         }
+        final IHeat heat = HeatCapability.get(stack);
+        if (heat != null) {
+            heat.setHeatCapacity(0.0F);
+            heat.setTemperature(temperature);
+        }
+    }
 
-        final ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(stack.getItem());
-        if (itemId.getNamespace().equals("iaftfc")
-            && itemId.getPath().startsWith("metal/ingot/dragonsteel_")) {
-            HeatCapability.setTemperature(stack, OUTPUT_TEMPERATURE);
+    public static void applyDisplay(ItemStack stack, float temperature) {
+        if (stack.isEmpty() || temperature <= 0.0F) {
+            return;
+        }
+        final IHeat heat = HeatCapability.get(stack);
+        if (heat != null) {
+            heat.setHeatCapacity(Float.MAX_VALUE);
+            heat.setTemperature(temperature);
         }
     }
 }
